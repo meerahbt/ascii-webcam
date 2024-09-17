@@ -3,9 +3,13 @@ import numpy as np
 import os
 
 # ASCII characters from dark to light
-ascii_chars = [' ', '.', "'", '`', '^', '"', ',', ':', ';', 'I', 'l', '!', 'i', '>', '<', '~', '+', '_', '-', '?', ']', '[', '}',
-               '{', '1', ')', '(', '|', '\\', '/', 't', 'f', 'j', 'r', 'x', 'n', 'u', 'v', 'c', 'z', 'X', 'Y', 'U', 'J', 'C', 'L',
-               'Q', '0', 'O', 'Z', 'm', 'w', 'q', 'p', 'd', 'b', 'k', 'h', 'a', 'o', '*', '#', 'M', 'W', '&', '8', '%', 'B', '@', '$']
+ascii_chars = [
+    '\u2588',  # Full block
+    '\u2593',  # Dark shade
+    '\u2592',  # Medium shade
+    '\u2591',  # Light shade
+    '\u2003'   # Em space (for empty space)
+]
 
 def convert_to_ascii(frame, cols=80, rows=60):
     # Resize the frame
