@@ -2,30 +2,31 @@ import cv2
 import numpy as np
 import os
 
-# ASCII characters from dark to light
-ascii_chars = [
-    '\u2588',  # Full block
-    '\u2593',  # Dark shade
-    '\u2592',  # Medium shade
-    '\u2591',  # Light shade
-    '\u2003'   # Em space (for empty space)
+# Expanded Unicode blocks for more detailed shading
+unicode_blocks = [
+    '\u2588', '\u2587', '\u2586', '\u2585', '\u2584', 
+    '\u2583', '\u2582', '\u2581', '\u2003'
 ]
 
-def convert_to_ascii(frame, cols=80, rows=60):
+def convert_to_blocks(frame, cols, rows):
     # Resize the frame
     small_frame = cv2.resize(frame, (cols, rows))
+    
+    # Flip the frame horizontally
+    small_frame = cv2.flip(small_frame, 1)
     
     # Convert to grayscale
     gray = cv2.cvtColor(small_frame, cv2.COLOR_BGR2GRAY)
     
-    # Convert each pixel to ASCII
-    ascii_art = ""
+    # Convert each pixel to a block
+    block_art = ""
     for row in gray:
         for pixel in row:
-            ascii_art += ascii_chars[int(pixel / 255 * (len(ascii_chars) - 1))]
-        ascii_art += "\n"
+            index = int(pixel / 255 * (len(unicode_blocks) - 1))
+            block_art += unicode_blocks[index]
+        block_art += "\n"
     
-    return ascii_art
+    return block_art
 
 def clear_console():
     # Clear console command for different operating systems
@@ -34,18 +35,28 @@ def clear_console():
 def main():
     # Capturing the webcam
     cap = cv2.VideoCapture(0)
+    
+    # Set capture resolution to match MacBook's 16:10 aspect ratio
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 2560)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1600)
+
+    # Calculate the number of columns and rows for the ASCII art
+    # We'll scale down by a factor to maintain performance
+    scale_factor = 0.05  # Adjust this value to change the level of detail
+    cols = int(2560 * scale_factor)
+    rows = int(1600 * scale_factor)
 
     while True:
         ret, frame = cap.read()
         if not ret:
             break
         
-        # Convert frame to ASCII
-        ascii_frame = convert_to_ascii(frame)
+        # Convert frame to block art
+        block_frame = convert_to_blocks(frame, cols, rows)
         
-        # Clear console and print ASCII art
+        # Clear console and print block art
         clear_console()
-        print(ascii_frame)
+        print(block_frame)
         
         # Break the loop if 'q' is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
