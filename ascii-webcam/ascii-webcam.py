@@ -1,21 +1,43 @@
 import cv2
 import numpy as np
 import os
+import shutil
 
-# Expanded Unicode blocks for more detailed shading
+# Unicode blocks for different shades (from darkest to lightest)
 unicode_blocks = [
-    '\u2588', '\u2587', '\u2586', '\u2585', '\u2584', 
-    '\u2583', '\u2582', '\u2581', '\u2003'
+    '\u2588',  # Full block
+    '\u2593',  # Dark shade
+    '\u2592',  # Medium shade
+    '\u2591',  # Light shade
+    '\u2580',  # Upper half block
+    '\u2584',  # Lower half block
+    '\u258c',  # Left half block
+    '\u2590',  # Right half block
+    '\u2003'   # Em space (for empty space)
 ]
 
+def get_terminal_size():
+    columns, rows = shutil.get_terminal_size()
+    return columns, rows
+
 def convert_to_blocks(frame, cols, rows):
-    # Resize the frame
-    small_frame = cv2.resize(frame, (cols, rows))
+    # Resize the frame to fit the terminal
+    aspect_ratio = frame.shape[1] / frame.shape[0]
+    new_width = cols
+    new_height = int(new_width / aspect_ratio)
+    if new_height > rows:
+        new_height = rows
+        new_width = int(new_height * aspect_ratio)
+    
+    small_frame = cv2.resize(frame, (new_width, new_height))
+    
+    # Flip the frame horizontally
+    small_frame = cv2.flip(small_frame, 1)
     
     # Convert to grayscale
     gray = cv2.cvtColor(small_frame, cv2.COLOR_BGR2GRAY)
     
-    # Convert each pixel to a block
+    # Convert each pixel to a Unicode block
     block_art = ""
     for row in gray:
         for pixel in row:
@@ -33,27 +55,20 @@ def main():
     # Capturing the webcam
     cap = cv2.VideoCapture(0)
     
-    # Set capture resolution to match MacBook's 16:10 aspect ratio
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 2560)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1600)
-
-    # Calculate the number of columns and rows for the ASCII art
-    # We'll scale down by a factor to maintain performance
-    scale_factor = 0.05  # Adjust this value to change the level of detail
-    cols = int(2560 * scale_factor)
-    rows = int(1600 * scale_factor)
-
     while True:
         ret, frame = cap.read()
         if not ret:
             break
         
+        # Get current terminal size
+        cols, rows = get_terminal_size()
+        
         # Convert frame to block art
-        block_frame = convert_to_blocks(frame, cols, rows)
+        block_frame = convert_to_blocks(frame, cols, rows - 1)  # Subtract 1 to avoid scrolling
         
         # Clear console and print block art
         clear_console()
-        print(block_frame)
+        print(block_frame, end='')
         
         # Break the loop if 'q' is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
