@@ -9,10 +9,6 @@ unicode_blocks = [
     '\u2593',  # Dark shade
     '\u2592',  # Medium shade
     '\u2591',  # Light shade
-    '\u2580',  # Upper half block
-    '\u2584',  # Lower half block
-    '\u258c',  # Left half block
-    '\u2590',  # Right half block
     '\u2003'   # Em space (for empty space)
 ]
 
