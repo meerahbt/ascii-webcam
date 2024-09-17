@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import os
 import shutil
+import sys
 
 # Simplified set of Unicode blocks for different shades (from darkest to lightest)
 unicode_blocks = [
@@ -46,36 +47,47 @@ def convert_to_blocks(frame, cols, rows):
     
     return block_art
 
-def clear_console():
-    # Clear console command for different operating systems
-    os.system('cls' if os.name == 'nt' else 'clear')
+def move_cursor(x, y):
+    print(f"\033[{y};{x}H", end="")
 
 def main():
     # Capturing the webcam
     cap = cv2.VideoCapture(0)
     
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            break
+    # Clear the console once at the start
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    # Hide the cursor
+    print("\033[?25l", end="")
+    
+    try:
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            
+            # Get current terminal size
+            cols, rows = get_terminal_size()
+            
+            # Convert frame to block art
+            block_frame = convert_to_blocks(frame, cols, rows - 1)  # Subtract 1 to avoid scrolling
+            
+            # Move cursor to top-left corner and print block art
+            move_cursor(0, 0)
+            sys.stdout.write(block_frame)
+            sys.stdout.flush()
+            
+            # Break the loop if 'q' is pressed
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+    
+    finally:
+        # Show the cursor again
+        print("\033[?25h", end="")
         
-        # Get current terminal size
-        cols, rows = get_terminal_size()
-        
-        # Convert frame to block art
-        block_frame = convert_to_blocks(frame, cols, rows - 1)  # Subtract 1 to avoid scrolling
-        
-        # Clear console and print block art
-        clear_console()
-        print(block_frame, end='')
-        
-        # Break the loop if 'q' is pressed
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-    # Release the capture and close windows
-    cap.release()
-    cv2.destroyAllWindows()
+        # Release the capture and close windows
+        cap.release()
+        cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
