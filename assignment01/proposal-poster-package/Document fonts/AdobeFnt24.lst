@@ -1,0 +1,204 @@
+%!Adobe-FontList 1.24
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/meerahbinteliah/Desktop/University Work/senior-project/assignment01/proposal-poster-package/Document fonts/AdobeFnt24.lst
+FileLength:4672
+FileModTime:746462888
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Consolas
+FamilyName:Consolas
+StyleName:Regular
+MenuName:Consolas
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Consolas
+WritingScript:Roman
+OutlineFileName:/Users/meerahbinteliah/Desktop/University Work/senior-project/assignment01/proposal-poster-package/Document fonts/CONSOLA.TTF
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:358460
+FileModTime:490690260
+NameArray:0,Mac,4,Consolas
+NameArray:0,Win,1,Consolas
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Helvetica
+FamilyName:Helvetica
+StyleName:Regular
+MenuName:Helvetica
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Helvetica
+WritingScript:Roman
+OutlineFileName:/Users/meerahbinteliah/Desktop/University Work/senior-project/assignment01/proposal-poster-package/Document fonts/Helvetica.ttc
+TTCOffset:48
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:2369592
+FileModTime:718949339
+NameArray:0,Mac,18,Helvetica
+NameArray:0,Mac,4,Helvetica
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Helvetica-Bold
+FamilyName:Helvetica
+StyleName:Bold
+MenuName:Helvetica
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Helvetica Bold
+WritingScript:Roman
+OutlineFileName:/Users/meerahbinteliah/Desktop/University Work/senior-project/assignment01/proposal-poster-package/Document fonts/Helvetica.ttc
+TTCOffset:380
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:2369592
+FileModTime:718949339
+NameArray:0,Mac,4,Helvetica Bold
+NameArray:0,Mac,4,Helvetica lihava
+NameArray:0,Mac,4,Helvetica Gras
+NameArray:0,Mac,4,Helvetica Fett
+NameArray:0,Mac,4,Helvetica grassetto
+NameArray:0,Mac,4,Helvetica vet
+NameArray:0,Mac,4,Helvetica Fet
+NameArray:0,Mac,4,Helvetica Negrita
+NameArray:0,Mac,4,Helvetica Carregado
+NameArray:0,Mac,4,Helvetica Halvfet
+NameArray:0,Mac,18,Helvetica Bold
+NameArray:4,Mac,4,Helvetica‭ ‬أسود
+NameArray:4,Mac,4,Helvetica‭ ‬برجسته
+NameArray:5,Mac,4,Helvetica‭ ‬עבה
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Helvetica-BoldOblique
+FamilyName:Helvetica
+StyleName:Bold Oblique
+MenuName:Helvetica
+StyleBits:3
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Helvetica Bold Oblique
+WritingScript:Roman
+OutlineFileName:/Users/meerahbinteliah/Desktop/University Work/senior-project/assignment01/proposal-poster-package/Document fonts/Helvetica.ttc
+TTCOffset:1028
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:2369592
+FileModTime:718949339
+NameArray:0,Mac,18,Helvetica Bold Oblique
+NameArray:0,Mac,4,Helvetica Bold Oblique
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Helvetica-Light
+FamilyName:Helvetica
+StyleName:Light
+MenuName:Helvetica
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Helvetica Light
+WritingScript:Roman
+OutlineFileName:/Users/meerahbinteliah/Desktop/University Work/senior-project/assignment01/proposal-poster-package/Document fonts/Helvetica.ttc
+TTCOffset:1344
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:2369592
+FileModTime:718949339
+NameArray:0,Mac,18,Helvetica Light
+NameArray:0,Mac,4,Helvetica Light
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Helvetica-LightOblique
+FamilyName:Helvetica
+StyleName:Light Oblique
+MenuName:Helvetica
+StyleBits:1
+WeightClass:300
+WidthClass:5
+AngleClass:1
+FullName:Helvetica Light Oblique
+WritingScript:Roman
+OutlineFileName:/Users/meerahbinteliah/Desktop/University Work/senior-project/assignment01/proposal-poster-package/Document fonts/Helvetica.ttc
+TTCOffset:1644
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:2369592
+FileModTime:718949339
+NameArray:0,Mac,18,Helvetica Light Oblique
+NameArray:0,Mac,4,Helvetica Light Oblique
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Helvetica-Oblique
+FamilyName:Helvetica
+StyleName:Oblique
+MenuName:Helvetica
+StyleBits:1
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Helvetica Oblique
+WritingScript:Roman
+OutlineFileName:/Users/meerahbinteliah/Desktop/University Work/senior-project/assignment01/proposal-poster-package/Document fonts/Helvetica.ttc
+TTCOffset:696
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:2369592
+FileModTime:718949339
+NameArray:0,Mac,18,Helvetica Oblique
+NameArray:0,Mac,4,Helvetica Oblique
+%EndFont
+
