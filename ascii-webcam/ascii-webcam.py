@@ -3,13 +3,13 @@ import numpy as np
 import os
 import shutil
 
-# Unicode blocks for different shades (from darkest to lightest)
+# Simplified set of Unicode blocks for different shades (from darkest to lightest)
 unicode_blocks = [
     '\u2588',  # Full block
     '\u2593',  # Dark shade
     '\u2592',  # Medium shade
     '\u2591',  # Light shade
-    '\u2003'   # Em space (for empty space)
+    ' '        # Space (for empty/lightest)
 ]
 
 def get_terminal_size():
@@ -20,10 +20,10 @@ def convert_to_blocks(frame, cols, rows):
     # Resize the frame to fit the terminal
     aspect_ratio = frame.shape[1] / frame.shape[0]
     new_width = cols
-    new_height = int(new_width / aspect_ratio)
+    new_height = int(new_width / aspect_ratio / 2)  # Divide by 2 to account for character aspect ratio
     if new_height > rows:
         new_height = rows
-        new_width = int(new_height * aspect_ratio)
+        new_width = int(new_height * aspect_ratio * 2)
     
     small_frame = cv2.resize(frame, (new_width, new_height))
     
@@ -32,6 +32,9 @@ def convert_to_blocks(frame, cols, rows):
     
     # Convert to grayscale
     gray = cv2.cvtColor(small_frame, cv2.COLOR_BGR2GRAY)
+    
+    # Enhance contrast
+    gray = cv2.equalizeHist(gray)
     
     # Convert each pixel to a Unicode block
     block_art = ""
