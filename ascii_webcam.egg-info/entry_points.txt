@@ -1,0 +1,2 @@
+[console_scripts]
+ascii-webcam = ascii_webcam.main:main

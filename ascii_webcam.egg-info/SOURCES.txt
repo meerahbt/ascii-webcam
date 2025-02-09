@@ -1,0 +1,8 @@
+README.md
+setup.py
+ascii_webcam.egg-info/PKG-INFO
+ascii_webcam.egg-info/SOURCES.txt
+ascii_webcam.egg-info/dependency_links.txt
+ascii_webcam.egg-info/entry_points.txt
+ascii_webcam.egg-info/requires.txt
+ascii_webcam.egg-info/top_level.txt
